@@ -1,0 +1,743 @@
+2025-08-03 14:10:50,590 - 
+[33m[1mDNS Spoofing Attack Simulation[0m
+2025-08-03 14:10:50,594 - [36m--------------------------------------------------[0m
+2025-08-03 14:10:50,642 - [32miptables rule applied successfully.[0m
+2025-08-03 14:10:50,643 - 
+[32mStarting DNS spoofing... Press Ctrl+C to stop.[0m
+2025-08-03 14:21:14,666 - 
+[33m[1mDNS Spoofing Attack Simulation[0m
+2025-08-03 14:21:14,673 - [36m--------------------------------------------------[0m
+2025-08-03 14:21:14,778 - [32miptables rules applied successfully.[0m
+2025-08-03 14:21:14,783 - 
+[32mStarting DNS spoofing... Press Ctrl+C to stop.[0m
+2025-08-03 14:22:24,201 - [33mIntercepting query for google.com.[0m
+2025-08-03 14:22:24,203 - [32mRedirecting google.com. to 172.16.0.1[0m
+Spoofed google.com. to 172.16.0.1
+2025-08-03 14:22:24,209 - [33mIntercepting query for google.com.[0m
+2025-08-03 14:22:24,209 - [32mRedirecting google.com. to 10.0.0.1[0m
+Spoofed google.com. to 10.0.0.1
+2025-08-03 14:29:48,228 - [32mFlushing iptables rules...[0m
+2025-08-03 14:29:55,080 - 
+[33m[1mDNS Spoofing Attack Simulation[0m
+2025-08-03 14:29:55,083 - [36m--------------------------------------------------[0m
+2025-08-03 14:29:55,113 - [32miptables rules applied successfully.[0m
+2025-08-03 14:29:55,124 - 
+[32mStarting DNS spoofing... Press Ctrl+C to stop.[0m
+2025-08-03 14:34:00,205 - 
+[33m[1mDNS Spoofing Attack Simulation[0m
+2025-08-03 14:34:00,206 - [36m--------------------------------------------------[0m
+2025-08-03 14:34:00,235 - [32miptables rules applied successfully.[0m
+2025-08-03 14:34:00,239 - 
+[32mStarting DNS spoofing... Press Ctrl+C to stop.[0m
+2025-08-03 14:34:43,483 - [33mIntercepting query for 8.8.8.8.[0m
+2025-08-03 14:34:43,492 - [32mRedirecting 8.8.8.8. to 10.0.0.1[0m
+2025-08-03 14:34:43,547 - [33mIntercepting query for 8.8.8.8.[0m
+2025-08-03 14:34:43,552 - [32mRedirecting 8.8.8.8. to 10.0.0.1[0m
+2025-08-03 14:36:36,854 - [32mFlushing iptables rules...[0m
+2025-08-03 14:39:54,773 - 
+[33m[1mDNS Spoofing Attack Simulation[0m
+2025-08-03 14:39:54,774 - [36m--------------------------------------------------[0m
+2025-08-03 14:39:54,813 - [32miptables rules applied successfully.[0m
+2025-08-03 14:39:54,820 - 
+[32mStarting DNS spoofing... Press Ctrl+C to stop.[0m
+2025-08-03 14:40:25,101 - [33mIntercepting query for wasafibet.co.tz.[0m
+2025-08-03 14:40:25,102 - [32mRedirecting wasafibet.co.tz. to 10.0.0.1[0m
+2025-08-03 15:30:34,865 - --- Error sending packets
+Traceback (most recent call last):
+  File "/home/m-d-h/bm/.venv/lib/python3.12/site-packages/scapy/utils.py", line 638, in atol
+    ip = inet_aton(x)
+         ^^^^^^^^^^^^
+OSError: illegal IP address string passed to inet_aton
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/m-d-h/bm/.venv/lib/python3.12/site-packages/scapy/packet.py", line 680, in self_build
+    p = f.addfield(self, p, val)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/m-d-h/bm/.venv/lib/python3.12/site-packages/scapy/fields.py", line 543, in addfield
+    return fld.addfield(pkt, s, val)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/m-d-h/bm/.venv/lib/python3.12/site-packages/scapy/fields.py", line 243, in addfield
+    return s + self.struct.pack(self.i2m(pkt, val))
+                                ^^^^^^^^^^^^^^^^^^
+  File "/home/m-d-h/bm/.venv/lib/python3.12/site-packages/scapy/fields.py", line 896, in i2m
+    x = self.__findaddr(pkt)
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/m-d-h/bm/.venv/lib/python3.12/site-packages/scapy/fields.py", line 891, in __findaddr
+    return conf.route.route(dst)[1]
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/m-d-h/bm/.venv/lib/python3.12/site-packages/scapy/route.py", line 176, in route
+    atol_dst = atol(_dst)
+               ^^^^^^^^^^
+  File "/home/m-d-h/bm/.venv/lib/python3.12/site-packages/scapy/utils.py", line 640, in atol
+    ip = inet_aton(socket.gethostbyname(x))
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/m-d-h/bm/.venv/lib/python3.12/site-packages/scapy/sendrecv.py", line 248, in _sndrcv_snd
+    self.pks.send(p)
+  File "/home/m-d-h/bm/.venv/lib/python3.12/site-packages/scapy/arch/linux.py", line 567, in send
+    return SuperSocket.send(self, x)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/m-d-h/bm/.venv/lib/python3.12/site-packages/scapy/supersocket.py", line 103, in send
+    sx = raw(x)
+         ^^^^^^
+  File "/home/m-d-h/bm/.venv/lib/python3.12/site-packages/scapy/compat.py", line 294, in raw
+    return bytes(x)
+           ^^^^^^^^
+  File "/home/m-d-h/bm/.venv/lib/python3.12/site-packages/scapy/packet.py", line 589, in __bytes__
+    return self.build()
+           ^^^^^^^^^^^^
+  File "/home/m-d-h/bm/.venv/lib/python3.12/site-packages/scapy/packet.py", line 730, in build
+    p = self.do_build()
+        ^^^^^^^^^^^^^^^
+  File "/home/m-d-h/bm/.venv/lib/python3.12/site-packages/scapy/packet.py", line 713, in do_build
+    pay = self.do_build_payload()
+          ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/m-d-h/bm/.venv/lib/python3.12/site-packages/scapy/packet.py", line 699, in do_build_payload
+    return self.payload.do_build()
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/m-d-h/bm/.venv/lib/python3.12/site-packages/scapy/packet.py", line 710, in do_build
+    pkt = self.self_build()
+          ^^^^^^^^^^^^^^^^^
+  File "/home/m-d-h/bm/.venv/lib/python3.12/site-packages/scapy/packet.py", line 684, in self_build
+    "While dissecting field '%s': " % f.name +
+TypeError: can only concatenate str (not "int") to str
+2025-08-03 15:30:37,110 - --- Error sending packets
+Traceback (most recent call last):
+  File "/home/m-d-h/bm/.venv/lib/python3.12/site-packages/scapy/utils.py", line 638, in atol
+    ip = inet_aton(x)
+         ^^^^^^^^^^^^
+OSError: illegal IP address string passed to inet_aton
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/m-d-h/bm/.venv/lib/python3.12/site-packages/scapy/packet.py", line 680, in self_build
+    p = f.addfield(self, p, val)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/m-d-h/bm/.venv/lib/python3.12/site-packages/scapy/fields.py", line 543, in addfield
+    return fld.addfield(pkt, s, val)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/m-d-h/bm/.venv/lib/python3.12/site-packages/scapy/fields.py", line 243, in addfield
+    return s + self.struct.pack(self.i2m(pkt, val))
+                                ^^^^^^^^^^^^^^^^^^
+  File "/home/m-d-h/bm/.venv/lib/python3.12/site-packages/scapy/fields.py", line 896, in i2m
+    x = self.__findaddr(pkt)
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/m-d-h/bm/.venv/lib/python3.12/site-packages/scapy/fields.py", line 891, in __findaddr
+    return conf.route.route(dst)[1]
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/m-d-h/bm/.venv/lib/python3.12/site-packages/scapy/route.py", line 176, in route
+    atol_dst = atol(_dst)
+               ^^^^^^^^^^
+  File "/home/m-d-h/bm/.venv/lib/python3.12/site-packages/scapy/utils.py", line 640, in atol
+    ip = inet_aton(socket.gethostbyname(x))
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/m-d-h/bm/.venv/lib/python3.12/site-packages/scapy/sendrecv.py", line 248, in _sndrcv_snd
+    self.pks.send(p)
+  File "/home/m-d-h/bm/.venv/lib/python3.12/site-packages/scapy/arch/linux.py", line 567, in send
+    return SuperSocket.send(self, x)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/m-d-h/bm/.venv/lib/python3.12/site-packages/scapy/supersocket.py", line 103, in send
+    sx = raw(x)
+         ^^^^^^
+  File "/home/m-d-h/bm/.venv/lib/python3.12/site-packages/scapy/compat.py", line 294, in raw
+    return bytes(x)
+           ^^^^^^^^
+  File "/home/m-d-h/bm/.venv/lib/python3.12/site-packages/scapy/packet.py", line 589, in __bytes__
+    return self.build()
+           ^^^^^^^^^^^^
+  File "/home/m-d-h/bm/.venv/lib/python3.12/site-packages/scapy/packet.py", line 730, in build
+    p = self.do_build()
+        ^^^^^^^^^^^^^^^
+  File "/home/m-d-h/bm/.venv/lib/python3.12/site-packages/scapy/packet.py", line 713, in do_build
+    pay = self.do_build_payload()
+          ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/m-d-h/bm/.venv/lib/python3.12/site-packages/scapy/packet.py", line 699, in do_build_payload
+    return self.payload.do_build()
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/m-d-h/bm/.venv/lib/python3.12/site-packages/scapy/packet.py", line 710, in do_build
+    pkt = self.self_build()
+          ^^^^^^^^^^^^^^^^^
+  File "/home/m-d-h/bm/.venv/lib/python3.12/site-packages/scapy/packet.py", line 684, in self_build
+    "While dissecting field '%s': " % f.name +
+TypeError: can only concatenate str (not "int") to str
+2025-08-03 15:30:48,483 - --- Error sending packets
+Traceback (most recent call last):
+  File "/home/m-d-h/bm/.venv/lib/python3.12/site-packages/scapy/utils.py", line 638, in atol
+    ip = inet_aton(x)
+         ^^^^^^^^^^^^
+OSError: illegal IP address string passed to inet_aton
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/m-d-h/bm/.venv/lib/python3.12/site-packages/scapy/packet.py", line 680, in self_build
+    p = f.addfield(self, p, val)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/m-d-h/bm/.venv/lib/python3.12/site-packages/scapy/fields.py", line 543, in addfield
+    return fld.addfield(pkt, s, val)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/m-d-h/bm/.venv/lib/python3.12/site-packages/scapy/fields.py", line 243, in addfield
+    return s + self.struct.pack(self.i2m(pkt, val))
+                                ^^^^^^^^^^^^^^^^^^
+  File "/home/m-d-h/bm/.venv/lib/python3.12/site-packages/scapy/fields.py", line 896, in i2m
+    x = self.__findaddr(pkt)
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/m-d-h/bm/.venv/lib/python3.12/site-packages/scapy/fields.py", line 891, in __findaddr
+    return conf.route.route(dst)[1]
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/m-d-h/bm/.venv/lib/python3.12/site-packages/scapy/route.py", line 176, in route
+    atol_dst = atol(_dst)
+               ^^^^^^^^^^
+  File "/home/m-d-h/bm/.venv/lib/python3.12/site-packages/scapy/utils.py", line 640, in atol
+    ip = inet_aton(socket.gethostbyname(x))
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/m-d-h/bm/.venv/lib/python3.12/site-packages/scapy/sendrecv.py", line 248, in _sndrcv_snd
+    self.pks.send(p)
+  File "/home/m-d-h/bm/.venv/lib/python3.12/site-packages/scapy/arch/linux.py", line 567, in send
+    return SuperSocket.send(self, x)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/m-d-h/bm/.venv/lib/python3.12/site-packages/scapy/supersocket.py", line 103, in send
+    sx = raw(x)
+         ^^^^^^
+  File "/home/m-d-h/bm/.venv/lib/python3.12/site-packages/scapy/compat.py", line 294, in raw
+    return bytes(x)
+           ^^^^^^^^
+  File "/home/m-d-h/bm/.venv/lib/python3.12/site-packages/scapy/packet.py", line 589, in __bytes__
+    return self.build()
+           ^^^^^^^^^^^^
+  File "/home/m-d-h/bm/.venv/lib/python3.12/site-packages/scapy/packet.py", line 730, in build
+    p = self.do_build()
+        ^^^^^^^^^^^^^^^
+  File "/home/m-d-h/bm/.venv/lib/python3.12/site-packages/scapy/packet.py", line 713, in do_build
+    pay = self.do_build_payload()
+          ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/m-d-h/bm/.venv/lib/python3.12/site-packages/scapy/packet.py", line 699, in do_build_payload
+    return self.payload.do_build()
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/m-d-h/bm/.venv/lib/python3.12/site-packages/scapy/packet.py", line 710, in do_build
+    pkt = self.self_build()
+          ^^^^^^^^^^^^^^^^^
+  File "/home/m-d-h/bm/.venv/lib/python3.12/site-packages/scapy/packet.py", line 684, in self_build
+    "While dissecting field '%s': " % f.name +
+TypeError: can only concatenate str (not "int") to str
+2025-08-03 15:30:50,526 - --- Error sending packets
+Traceback (most recent call last):
+  File "/home/m-d-h/bm/.venv/lib/python3.12/site-packages/scapy/utils.py", line 638, in atol
+    ip = inet_aton(x)
+         ^^^^^^^^^^^^
+OSError: illegal IP address string passed to inet_aton
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/m-d-h/bm/.venv/lib/python3.12/site-packages/scapy/packet.py", line 680, in self_build
+    p = f.addfield(self, p, val)
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/m-d-h/bm/.venv/lib/python3.12/site-packages/scapy/fields.py", line 543, in addfield
+    return fld.addfield(pkt, s, val)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/m-d-h/bm/.venv/lib/python3.12/site-packages/scapy/fields.py", line 243, in addfield
+    return s + self.struct.pack(self.i2m(pkt, val))
+                                ^^^^^^^^^^^^^^^^^^
+  File "/home/m-d-h/bm/.venv/lib/python3.12/site-packages/scapy/fields.py", line 896, in i2m
+    x = self.__findaddr(pkt)
+        ^^^^^^^^^^^^^^^^^^^^
+  File "/home/m-d-h/bm/.venv/lib/python3.12/site-packages/scapy/fields.py", line 891, in __findaddr
+    return conf.route.route(dst)[1]
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/m-d-h/bm/.venv/lib/python3.12/site-packages/scapy/route.py", line 176, in route
+    atol_dst = atol(_dst)
+               ^^^^^^^^^^
+  File "/home/m-d-h/bm/.venv/lib/python3.12/site-packages/scapy/utils.py", line 640, in atol
+    ip = inet_aton(socket.gethostbyname(x))
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/m-d-h/bm/.venv/lib/python3.12/site-packages/scapy/sendrecv.py", line 248, in _sndrcv_snd
+    self.pks.send(p)
+  File "/home/m-d-h/bm/.venv/lib/python3.12/site-packages/scapy/arch/linux.py", line 567, in send
+    return SuperSocket.send(self, x)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/m-d-h/bm/.venv/lib/python3.12/site-packages/scapy/supersocket.py", line 103, in send
+    sx = raw(x)
+         ^^^^^^
+  File "/home/m-d-h/bm/.venv/lib/python3.12/site-packages/scapy/compat.py", line 294, in raw
+    return bytes(x)
+           ^^^^^^^^
+  File "/home/m-d-h/bm/.venv/lib/python3.12/site-packages/scapy/packet.py", line 589, in __bytes__
+    return self.build()
+           ^^^^^^^^^^^^
+  File "/home/m-d-h/bm/.venv/lib/python3.12/site-packages/scapy/packet.py", line 730, in build
+    p = self.do_build()
+        ^^^^^^^^^^^^^^^
+  File "/home/m-d-h/bm/.venv/lib/python3.12/site-packages/scapy/packet.py", line 713, in do_build
+    pay = self.do_build_payload()
+          ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/m-d-h/bm/.venv/lib/python3.12/site-packages/scapy/packet.py", line 699, in do_build_payload
+    return self.payload.do_build()
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/m-d-h/bm/.venv/lib/python3.12/site-packages/scapy/packet.py", line 710, in do_build
+    pkt = self.self_build()
+          ^^^^^^^^^^^^^^^^^
+  File "/home/m-d-h/bm/.venv/lib/python3.12/site-packages/scapy/packet.py", line 684, in self_build
+    "While dissecting field '%s': " % f.name +
+TypeError: can only concatenate str (not "int") to str
+2025-08-03 17:05:51,698 - Cannot set filter: libpcap is not available. Cannot compile filter !
+2025-08-03 17:06:02,968 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:06:03,404 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:06:23,457 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:06:24,122 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:06:47,756 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:06:48,273 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:07:07,135 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:07:08,467 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:07:26,527 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:07:26,974 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:07:36,974 - Cannot set filter: libpcap is not available. Cannot compile filter !
+2025-08-03 17:07:48,822 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:07:48,833 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:07:49,488 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:07:49,497 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:08:09,309 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:08:09,311 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:08:10,559 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:08:10,582 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:08:32,406 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:08:32,811 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:08:34,143 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:08:34,253 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:08:52,770 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:08:52,772 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:08:53,325 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:08:53,336 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:09:16,291 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:09:16,299 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:09:16,732 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:09:16,748 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:09:36,654 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:09:36,656 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:09:37,209 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:09:38,198 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:09:57,087 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:09:57,121 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:09:57,590 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:09:57,599 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:10:16,927 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:10:16,952 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:10:17,364 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:10:17,376 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:10:39,108 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:10:39,132 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:10:39,664 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:10:39,681 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:10:58,947 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:10:58,968 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:10:59,807 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:10:59,876 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:11:19,148 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:11:19,153 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:11:19,824 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:11:19,828 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:11:41,598 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:11:41,612 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:11:42,153 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:11:42,173 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:12:01,944 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:12:01,979 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:12:02,830 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:12:02,878 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:12:21,773 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:12:21,784 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:12:22,300 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:12:22,302 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:12:44,153 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:12:44,164 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:12:44,596 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:12:44,620 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:13:04,102 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:13:04,105 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:13:04,549 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:13:04,671 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:13:23,797 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:13:23,822 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:13:24,575 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:13:24,685 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:13:46,093 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:13:46,123 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:13:46,461 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:13:46,539 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:14:05,923 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:14:05,925 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:14:06,294 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:14:06,416 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:14:25,709 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:14:25,709 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:14:26,071 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:14:26,074 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:14:46,136 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:14:46,158 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:14:46,752 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:14:46,752 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:15:08,731 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:15:08,773 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:15:09,270 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:15:09,271 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:15:28,828 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:15:28,858 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:15:29,312 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:15:29,315 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:15:48,558 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:15:48,576 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:15:48,995 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:15:48,997 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:16:11,755 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:16:11,911 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:16:12,213 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:16:12,260 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:16:33,850 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:16:33,852 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:16:34,490 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:16:34,627 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:16:58,067 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:16:58,263 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:16:58,749 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:16:58,765 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:17:17,819 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:17:17,821 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:17:18,365 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:17:18,367 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:17:40,997 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:17:41,000 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:17:42,556 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:17:42,582 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:18:00,611 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:18:00,656 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:18:01,066 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:18:01,073 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:18:20,184 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:18:20,592 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:18:23,332 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:18:23,440 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:18:43,247 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:18:44,568 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:18:45,031 - Failed to get IP info for 127.0.0.1: HTTPConnectionPool(host='ip-api.com', port=80): Max retries exceeded with url: /json/127.0.0.1 (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x71e539a35a00>, 'Connection to ip-api.com timed out. (connect timeout=2)'))
+2025-08-03 17:18:45,032 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:18:46,156 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:19:12,190 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:19:12,369 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:19:13,084 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:19:13,142 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:19:24,260 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:19:24,331 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:19:25,858 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:19:25,913 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:19:47,030 - Failed to get IP info for 127.0.0.1: HTTPConnectionPool(host='ip-api.com', port=80): Read timed out. (read timeout=2)
+2025-08-03 17:19:47,031 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:19:47,085 - Failed to get IP info for 127.0.0.1: HTTPConnectionPool(host='ip-api.com', port=80): Read timed out. (read timeout=2)
+2025-08-03 17:19:47,086 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:19:47,813 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:19:47,847 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:20:06,981 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:20:08,158 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:20:08,561 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:20:08,660 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:20:28,959 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:20:29,052 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:20:29,328 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:20:29,461 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:20:52,294 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:20:52,325 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:20:52,699 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:20:52,786 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:21:07,747 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:21:07,765 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:21:08,211 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:21:08,222 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:21:30,031 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:21:30,079 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:21:27,967 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:21:27,985 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:21:52,354 - Failed to get IP info for 127.0.0.1: HTTPConnectionPool(host='ip-api.com', port=80): Max retries exceeded with url: /json/127.0.0.1 (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x71e539a36330>, 'Connection to ip-api.com timed out. (connect timeout=2)'))
+2025-08-03 17:21:52,355 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:21:52,401 - Failed to get IP info for 127.0.0.1: HTTPConnectionPool(host='ip-api.com', port=80): Max retries exceeded with url: /json/127.0.0.1 (Caused by ConnectTimeoutError(<urllib3.connection.HTTPConnection object at 0x795592e2f290>, 'Connection to ip-api.com timed out. (connect timeout=2)'))
+2025-08-03 17:21:52,403 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:21:54,008 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:21:55,008 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:22:11,299 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:22:11,310 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:22:11,902 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:22:11,970 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:22:32,071 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:22:32,184 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:22:32,493 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:22:32,608 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:22:55,164 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:22:55,170 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:22:55,644 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:22:55,672 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:23:15,627 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:23:15,718 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:23:16,084 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:23:16,166 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:23:36,724 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:23:36,779 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:23:37,196 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:23:37,215 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:23:56,891 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:23:56,893 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:23:57,464 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:23:57,498 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:24:19,543 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:24:19,896 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:24:21,356 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:24:21,534 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:24:39,619 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:24:39,646 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:24:40,025 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:24:40,030 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:25:00,076 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:25:00,100 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:25:00,639 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:25:00,702 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:25:22,281 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:25:22,297 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:25:22,822 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:25:22,919 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:25:42,464 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:25:42,514 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:25:42,850 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:25:42,892 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:26:02,042 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:26:02,599 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:26:02,902 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:26:03,106 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:26:24,183 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:26:24,198 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:26:24,623 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:26:24,639 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:26:43,974 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:26:43,986 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:26:44,357 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:26:44,403 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:27:03,736 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:27:03,739 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:27:04,127 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:27:04,165 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:27:26,109 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:27:26,138 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:27:26,456 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:27:26,550 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:27:45,888 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:27:45,898 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:27:46,252 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:27:46,279 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:28:05,646 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:28:05,648 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:28:06,160 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:28:06,179 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:28:26,017 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:28:26,029 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:28:26,343 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:28:26,420 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:28:48,248 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:28:48,283 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:28:48,617 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:28:48,658 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:29:08,007 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:29:08,025 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:29:08,353 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:29:08,420 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:29:28,631 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:29:28,701 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:29:29,276 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:29:29,475 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:29:50,930 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:29:50,944 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:29:51,303 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:29:51,387 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:30:10,738 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:30:10,745 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:30:11,149 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:30:11,172 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:30:30,481 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:30:30,496 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:30:30,864 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:30:30,886 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:30:52,667 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:30:52,685 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:30:53,015 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:30:53,040 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:31:12,349 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:31:12,354 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:31:12,695 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:31:12,772 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:31:32,200 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:31:32,256 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:31:32,659 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:31:32,685 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:31:54,290 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:31:54,313 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:31:54,659 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:31:54,658 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:32:14,029 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:32:14,046 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:32:14,381 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:32:14,413 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:32:33,784 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:32:33,786 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:32:34,184 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:32:34,187 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:32:53,498 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:32:53,503 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:32:53,909 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 17:32:53,922 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 19:25:08,286 - Failed to get IP info for 127.0.0.1: HTTPConnectionPool(host='ip-api.com', port=80): Max retries exceeded with url: /json/127.0.0.1 (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x795592e2fa70>: Failed to resolve 'ip-api.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-08-03 19:25:08,377 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 19:25:08,578 - Failed to get IP info for 127.0.0.1: HTTPConnectionPool(host='ip-api.com', port=80): Max retries exceeded with url: /json/127.0.0.1 (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x71e539a36630>: Failed to resolve 'ip-api.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-08-03 19:25:08,603 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 19:25:18,646 - Failed to get IP info for 127.0.0.1: HTTPConnectionPool(host='ip-api.com', port=80): Max retries exceeded with url: /json/127.0.0.1 (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x795592e2ecc0>: Failed to resolve 'ip-api.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-08-03 19:25:18,647 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 19:25:18,891 - Failed to get IP info for 127.0.0.1: HTTPConnectionPool(host='ip-api.com', port=80): Max retries exceeded with url: /json/127.0.0.1 (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x71e539a37410>: Failed to resolve 'ip-api.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-08-03 19:25:18,928 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 19:25:29,146 - Failed to get IP info for 127.0.0.1: HTTPConnectionPool(host='ip-api.com', port=80): Max retries exceeded with url: /json/127.0.0.1 (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x795592e2d1c0>: Failed to resolve 'ip-api.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-08-03 19:25:29,151 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 19:25:29,355 - Failed to get IP info for 127.0.0.1: HTTPConnectionPool(host='ip-api.com', port=80): Max retries exceeded with url: /json/127.0.0.1 (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x71e539a36330>: Failed to resolve 'ip-api.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-08-03 19:25:29,357 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 19:25:39,212 - Failed to get IP info for 127.0.0.1: HTTPConnectionPool(host='ip-api.com', port=80): Max retries exceeded with url: /json/127.0.0.1 (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x795592e2e150>: Failed to resolve 'ip-api.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-08-03 19:25:39,212 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 19:25:39,403 - Failed to get IP info for 127.0.0.1: HTTPConnectionPool(host='ip-api.com', port=80): Max retries exceeded with url: /json/127.0.0.1 (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x71e539a35250>: Failed to resolve 'ip-api.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-08-03 19:25:39,404 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 19:25:49,571 - Failed to get IP info for 127.0.0.1: HTTPConnectionPool(host='ip-api.com', port=80): Max retries exceeded with url: /json/127.0.0.1 (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x795592e2fbc0>: Failed to resolve 'ip-api.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-08-03 19:25:49,572 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 19:25:49,801 - Failed to get IP info for 127.0.0.1: HTTPConnectionPool(host='ip-api.com', port=80): Max retries exceeded with url: /json/127.0.0.1 (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x71e539a34e30>: Failed to resolve 'ip-api.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-08-03 19:25:49,827 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 19:25:59,607 - Failed to get IP info for 127.0.0.1: HTTPConnectionPool(host='ip-api.com', port=80): Max retries exceeded with url: /json/127.0.0.1 (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x79559377a930>: Failed to resolve 'ip-api.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-08-03 19:25:59,607 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 19:25:59,875 - Failed to get IP info for 127.0.0.1: HTTPConnectionPool(host='ip-api.com', port=80): Max retries exceeded with url: /json/127.0.0.1 (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x71e539a37500>: Failed to resolve 'ip-api.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-08-03 19:25:59,877 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 19:26:09,789 - Failed to get IP info for 127.0.0.1: HTTPConnectionPool(host='ip-api.com', port=80): Max retries exceeded with url: /json/127.0.0.1 (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x795592e2f9e0>: Failed to resolve 'ip-api.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-08-03 19:26:09,789 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 19:26:10,072 - Failed to get IP info for 127.0.0.1: HTTPConnectionPool(host='ip-api.com', port=80): Max retries exceeded with url: /json/127.0.0.1 (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x71e539a359a0>: Failed to resolve 'ip-api.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-08-03 19:26:10,073 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 19:26:19,829 - Failed to get IP info for 127.0.0.1: HTTPConnectionPool(host='ip-api.com', port=80): Max retries exceeded with url: /json/127.0.0.1 (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x795592e2fb00>: Failed to resolve 'ip-api.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-08-03 19:26:19,829 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 19:26:20,096 - Failed to get IP info for 127.0.0.1: HTTPConnectionPool(host='ip-api.com', port=80): Max retries exceeded with url: /json/127.0.0.1 (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x71e539a36cf0>: Failed to resolve 'ip-api.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-08-03 19:26:20,097 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 19:26:30,080 - Failed to get IP info for 127.0.0.1: HTTPConnectionPool(host='ip-api.com', port=80): Max retries exceeded with url: /json/127.0.0.1 (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x795592e2fec0>: Failed to resolve 'ip-api.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-08-03 19:26:30,081 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 19:26:30,292 - Failed to get IP info for 127.0.0.1: HTTPConnectionPool(host='ip-api.com', port=80): Max retries exceeded with url: /json/127.0.0.1 (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x71e539a37080>: Failed to resolve 'ip-api.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-08-03 19:26:30,293 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 19:26:40,167 - Failed to get IP info for 127.0.0.1: HTTPConnectionPool(host='ip-api.com', port=80): Max retries exceeded with url: /json/127.0.0.1 (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x795592e2ed20>: Failed to resolve 'ip-api.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-08-03 19:26:40,167 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 19:26:40,335 - Failed to get IP info for 127.0.0.1: HTTPConnectionPool(host='ip-api.com', port=80): Max retries exceeded with url: /json/127.0.0.1 (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x71e539a37440>: Failed to resolve 'ip-api.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-08-03 19:26:40,336 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 19:26:50,419 - Failed to get IP info for 127.0.0.1: HTTPConnectionPool(host='ip-api.com', port=80): Max retries exceeded with url: /json/127.0.0.1 (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x795592e2f980>: Failed to resolve 'ip-api.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-08-03 19:26:50,424 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 19:26:50,643 - Failed to get IP info for 127.0.0.1: HTTPConnectionPool(host='ip-api.com', port=80): Max retries exceeded with url: /json/127.0.0.1 (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x71e539a372f0>: Failed to resolve 'ip-api.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-08-03 19:26:50,647 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 19:27:00,447 - Failed to get IP info for 127.0.0.1: HTTPConnectionPool(host='ip-api.com', port=80): Max retries exceeded with url: /json/127.0.0.1 (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x795592e2e030>: Failed to resolve 'ip-api.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-08-03 19:27:00,450 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 19:27:00,670 - Failed to get IP info for 127.0.0.1: HTTPConnectionPool(host='ip-api.com', port=80): Max retries exceeded with url: /json/127.0.0.1 (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x71e539a36ea0>: Failed to resolve 'ip-api.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-08-03 19:27:00,670 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 19:27:10,643 - Failed to get IP info for 127.0.0.1: HTTPConnectionPool(host='ip-api.com', port=80): Max retries exceeded with url: /json/127.0.0.1 (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x795592e2f530>: Failed to resolve 'ip-api.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-08-03 19:27:10,651 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 19:27:10,825 - Failed to get IP info for 127.0.0.1: HTTPConnectionPool(host='ip-api.com', port=80): Max retries exceeded with url: /json/127.0.0.1 (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x71e539a35be0>: Failed to resolve 'ip-api.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-08-03 19:27:10,826 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 19:27:20,679 - Failed to get IP info for 127.0.0.1: HTTPConnectionPool(host='ip-api.com', port=80): Max retries exceeded with url: /json/127.0.0.1 (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x79559377be90>: Failed to resolve 'ip-api.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-08-03 19:27:20,681 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 19:27:20,839 - Failed to get IP info for 127.0.0.1: HTTPConnectionPool(host='ip-api.com', port=80): Max retries exceeded with url: /json/127.0.0.1 (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x71e539a36c00>: Failed to resolve 'ip-api.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-08-03 19:27:20,840 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 19:27:30,845 - Failed to get IP info for 127.0.0.1: HTTPConnectionPool(host='ip-api.com', port=80): Max retries exceeded with url: /json/127.0.0.1 (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x795592e2e6f0>: Failed to resolve 'ip-api.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-08-03 19:27:30,846 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 19:27:30,949 - Failed to get IP info for 127.0.0.1: HTTPConnectionPool(host='ip-api.com', port=80): Max retries exceeded with url: /json/127.0.0.1 (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x71e539a362a0>: Failed to resolve 'ip-api.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-08-03 19:27:30,950 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 19:27:40,863 - Failed to get IP info for 127.0.0.1: HTTPConnectionPool(host='ip-api.com', port=80): Max retries exceeded with url: /json/127.0.0.1 (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x795592db02c0>: Failed to resolve 'ip-api.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-08-03 19:27:40,864 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 19:27:40,978 - Failed to get IP info for 127.0.0.1: HTTPConnectionPool(host='ip-api.com', port=80): Max retries exceeded with url: /json/127.0.0.1 (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x71e539a37d70>: Failed to resolve 'ip-api.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-08-03 19:27:40,978 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 19:27:51,062 - Failed to get IP info for 127.0.0.1: HTTPConnectionPool(host='ip-api.com', port=80): Max retries exceeded with url: /json/127.0.0.1 (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x795592e2e4b0>: Failed to resolve 'ip-api.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-08-03 19:27:51,065 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 19:27:51,162 - Failed to get IP info for 127.0.0.1: HTTPConnectionPool(host='ip-api.com', port=80): Max retries exceeded with url: /json/127.0.0.1 (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x71e539a37c50>: Failed to resolve 'ip-api.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-08-03 19:27:51,163 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 19:28:01,099 - Failed to get IP info for 127.0.0.1: HTTPConnectionPool(host='ip-api.com', port=80): Max retries exceeded with url: /json/127.0.0.1 (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x795592e2f980>: Failed to resolve 'ip-api.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-08-03 19:28:01,099 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 19:28:01,182 - Failed to get IP info for 127.0.0.1: HTTPConnectionPool(host='ip-api.com', port=80): Max retries exceeded with url: /json/127.0.0.1 (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x71e539a367e0>: Failed to resolve 'ip-api.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-08-03 19:28:01,182 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 19:28:11,311 - Failed to get IP info for 127.0.0.1: HTTPConnectionPool(host='ip-api.com', port=80): Max retries exceeded with url: /json/127.0.0.1 (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x795592e2fbc0>: Failed to resolve 'ip-api.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-08-03 19:28:11,312 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 19:28:11,334 - Failed to get IP info for 127.0.0.1: HTTPConnectionPool(host='ip-api.com', port=80): Max retries exceeded with url: /json/127.0.0.1 (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x71e539a359a0>: Failed to resolve 'ip-api.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-08-03 19:28:11,334 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 19:28:21,355 - Failed to get IP info for 127.0.0.1: HTTPConnectionPool(host='ip-api.com', port=80): Max retries exceeded with url: /json/127.0.0.1 (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x795592e2ebd0>: Failed to resolve 'ip-api.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-08-03 19:28:21,356 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 19:28:21,363 - Failed to get IP info for 127.0.0.1: HTTPConnectionPool(host='ip-api.com', port=80): Max retries exceeded with url: /json/127.0.0.1 (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x71e539a34b60>: Failed to resolve 'ip-api.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-08-03 19:28:21,363 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 19:28:31,635 - Failed to get IP info for 127.0.0.1: HTTPConnectionPool(host='ip-api.com', port=80): Max retries exceeded with url: /json/127.0.0.1 (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x795592e2e8a0>: Failed to resolve 'ip-api.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-08-03 19:28:31,636 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 19:28:31,743 - Failed to get IP info for 127.0.0.1: HTTPConnectionPool(host='ip-api.com', port=80): Max retries exceeded with url: /json/127.0.0.1 (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x71e539a363f0>: Failed to resolve 'ip-api.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-08-03 19:28:31,743 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 19:28:41,675 - Failed to get IP info for 127.0.0.1: HTTPConnectionPool(host='ip-api.com', port=80): Max retries exceeded with url: /json/127.0.0.1 (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x795592db0170>: Failed to resolve 'ip-api.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-08-03 19:28:41,679 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 19:28:41,799 - Failed to get IP info for 127.0.0.1: HTTPConnectionPool(host='ip-api.com', port=80): Max retries exceeded with url: /json/127.0.0.1 (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x71e539a34e60>: Failed to resolve 'ip-api.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-08-03 19:28:41,801 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 19:28:57,406 - Failed to get IP info for 127.0.0.1: HTTPConnectionPool(host='ip-api.com', port=80): Max retries exceeded with url: /json/127.0.0.1 (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x79559377ab40>: Failed to resolve 'ip-api.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-08-03 19:28:57,407 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 19:28:57,415 - Failed to get IP info for 127.0.0.1: HTTPConnectionPool(host='ip-api.com', port=80): Max retries exceeded with url: /json/127.0.0.1 (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x71e539a37950>: Failed to resolve 'ip-api.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-08-03 19:28:57,424 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 19:29:07,423 - Failed to get IP info for 127.0.0.1: HTTPConnectionPool(host='ip-api.com', port=80): Max retries exceeded with url: /json/127.0.0.1 (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x795592e2eea0>: Failed to resolve 'ip-api.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-08-03 19:29:07,426 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 19:29:07,483 - Failed to get IP info for 127.0.0.1: HTTPConnectionPool(host='ip-api.com', port=80): Max retries exceeded with url: /json/127.0.0.1 (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x71e539a36f60>: Failed to resolve 'ip-api.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-08-03 19:29:07,483 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 19:29:18,580 - Failed to get IP info for 127.0.0.1: HTTPConnectionPool(host='ip-api.com', port=80): Max retries exceeded with url: /json/127.0.0.1 (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x795592e2f9e0>: Failed to resolve 'ip-api.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-08-03 19:29:18,583 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 19:29:18,599 - Failed to get IP info for 127.0.0.1: HTTPConnectionPool(host='ip-api.com', port=80): Max retries exceeded with url: /json/127.0.0.1 (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x71e539a353d0>: Failed to resolve 'ip-api.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-08-03 19:29:18,614 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 19:29:28,644 - Failed to get IP info for 127.0.0.1: HTTPConnectionPool(host='ip-api.com', port=80): Max retries exceeded with url: /json/127.0.0.1 (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x795592e2fad0>: Failed to resolve 'ip-api.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-08-03 19:29:28,645 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 19:29:28,699 - Failed to get IP info for 127.0.0.1: HTTPConnectionPool(host='ip-api.com', port=80): Max retries exceeded with url: /json/127.0.0.1 (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x71e539a34ce0>: Failed to resolve 'ip-api.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-08-03 19:29:28,700 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 19:29:40,319 - Failed to get IP info for 127.0.0.1: HTTPConnectionPool(host='ip-api.com', port=80): Max retries exceeded with url: /json/127.0.0.1 (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x795592e2e9c0>: Failed to resolve 'ip-api.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-08-03 19:29:40,319 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 19:29:40,327 - Failed to get IP info for 127.0.0.1: HTTPConnectionPool(host='ip-api.com', port=80): Max retries exceeded with url: /json/127.0.0.1 (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x71e539a36a50>: Failed to resolve 'ip-api.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-08-03 19:29:40,331 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 19:29:50,336 - Failed to get IP info for 127.0.0.1: HTTPConnectionPool(host='ip-api.com', port=80): Max retries exceeded with url: /json/127.0.0.1 (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x795592e2f470>: Failed to resolve 'ip-api.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-08-03 19:29:50,337 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 19:30:01,483 - Failed to get IP info for 127.0.0.1: HTTPConnectionPool(host='ip-api.com', port=80): Max retries exceeded with url: /json/127.0.0.1 (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x795592e2d640>: Failed to resolve 'ip-api.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-08-03 19:30:01,486 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 19:30:11,528 - Failed to get IP info for 127.0.0.1: HTTPConnectionPool(host='ip-api.com', port=80): Max retries exceeded with url: /json/127.0.0.1 (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x795592e2d7c0>: Failed to resolve 'ip-api.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-08-03 19:30:11,529 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 20:15:53,061 - Failed to get IP info for 127.0.0.1: HTTPConnectionPool(host='ip-api.com', port=80): Max retries exceeded with url: /json/127.0.0.1 (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x795592e2fc80>: Failed to resolve 'ip-api.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-08-03 20:15:53,097 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 20:16:03,227 - Failed to get IP info for 127.0.0.1: HTTPConnectionPool(host='ip-api.com', port=80): Max retries exceeded with url: /json/127.0.0.1 (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x79559377ac90>: Failed to resolve 'ip-api.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-08-03 20:16:03,227 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 20:16:13,332 - Failed to get IP info for 127.0.0.1: HTTPConnectionPool(host='ip-api.com', port=80): Max retries exceeded with url: /json/127.0.0.1 (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x795592e2f9e0>: Failed to resolve 'ip-api.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-08-03 20:16:13,333 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 20:16:23,360 - Failed to get IP info for 127.0.0.1: HTTPConnectionPool(host='ip-api.com', port=80): Max retries exceeded with url: /json/127.0.0.1 (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x79559377a420>: Failed to resolve 'ip-api.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-08-03 20:16:23,361 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 20:16:33,533 - Failed to get IP info for 127.0.0.1: HTTPConnectionPool(host='ip-api.com', port=80): Max retries exceeded with url: /json/127.0.0.1 (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x795592e2ff80>: Failed to resolve 'ip-api.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-08-03 20:16:33,533 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 20:16:43,550 - Failed to get IP info for 127.0.0.1: HTTPConnectionPool(host='ip-api.com', port=80): Max retries exceeded with url: /json/127.0.0.1 (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x795592e2e510>: Failed to resolve 'ip-api.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-08-03 20:16:43,550 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: get /stable-488a1f239235055e34e673291fb8d8c810886f... | [32mOS:[0m Linux/Unix
+2025-08-03 20:16:55,057 - Failed to get IP info for 127.0.0.1: HTTPConnectionPool(host='ip-api.com', port=80): Max retries exceeded with url: /json/127.0.0.1 (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x795592e2e930>: Failed to resolve 'ip-api.com' ([Errno -3] Temporary failure in name resolution)"))
+2025-08-03 20:16:55,060 - [91m[MALICIOUS PAYLOAD][0m From 127.0.0.1: ~    
+?  ).th scapy 1 "may 8, 2018"
+.sh... | [32mOS:[0m Linux/Unix
