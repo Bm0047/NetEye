@@ -64,24 +64,76 @@ Before installing and running NetEye, ensure you have the following:
 git clone https://github.com/Bm0047/neteye.git
 cd neteye
 ```
+
 ### 2. Install Python Dependencies
 
-It is recommended to use a virtual environment:
+You have two main options to install dependencies. It is **strongly recommended** to use a virtual environment for better package management.
+
+---
+
+#### Option A: Using a Virtual Environment (Recommended)
+
+##### Why Use It?
+
+1. **Isolation**: Keeps all required packages isolated from system Python and other projects.
+2. **Avoid Conflicts**: Allows different projects to use different versions of the same libraries.
+3. **Clean Setup**: You start with a minimal environment that contains only what your project needs.
+4. **Reproducibility**: Makes it easier to reproduce environments across systems.
+
+##### How to Set Up:
 
 ```bash
 python -m venv venv
-source venv/bin/activate   # Linux/macOS
-venv\Scripts\activate      # Windows
-Once activated, install the required Python packages using:
+source venv/bin/activate     # On Linux/macOS
+venv\Scripts\activate        # On Windows
+pip install -r requirements.txt
+```
+
+---
+
+#### Option B: Installing Dependencies Globally (Not Recommended)
 
 ```bash
 pip install -r requirements.txt
-###  If you don’t have a requirements.txt file, create one with the following packages:
+```
 
-psutil
-scapy
-colorama
-requests
-art
-python-nmap
-getpass
+##### Risks:
+
+* Might interfere with other Python projects on your system.
+* Harder to manage and debug version conflicts.
+* May require `sudo` permissions on Linux/macOS.
+
+---
+
+## Configuration
+
+You will need to configure `config.ini` to enable email alerts and detection settings. A sample configuration template will be provided in the repo. You'll be prompted for email credentials if using alerting.
+
+---
+
+## Running NetEye
+
+Start the main script with:
+
+```bash
+python main.py
+```
+
+Use the menu interface to navigate Offensive Tools, Defensive Tools, and Utilities. Make sure you run as Administrator or with root privileges for full functionality.
+
+---
+
+## Disclaimer
+
+This tool is intended for **educational and authorized network testing only**. The author is not responsible for misuse or any illegal activities carried out using this software.
+
+---
+
+## License
+
+MIT License
+
+---
+
+Happy Hunting,
+**Midnight Hunter**
