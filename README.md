@@ -72,3 +72,16 @@ It is recommended to use a virtual environment:
 python -m venv venv
 source venv/bin/activate   # Linux/macOS
 venv\Scripts\activate      # Windows
+Once activated, install the required Python packages using:
+
+```bash
+pip install -r requirements.txt
+###  If you don’t have a requirements.txt file, create one with the following packages:
+
+psutil
+scapy
+colorama
+requests
+art
+python-nmap
+getpass
