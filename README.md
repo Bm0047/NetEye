@@ -64,3 +64,11 @@ Before installing and running NetEye, ensure you have the following:
 git clone https://github.com/Bm0047/neteye.git
 cd neteye
 ```
+### 2. Install Python Dependencies
+
+It is recommended to use a virtual environment:
+
+```bash
+python -m venv venv
+source venv/bin/activate   # Linux/macOS
+venv\Scripts\activate      # Windows
