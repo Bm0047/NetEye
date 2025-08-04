@@ -67,73 +67,89 @@ cd neteye
 
 ### 2. Install Python Dependencies
 
-You have two main options to install dependencies. It is **strongly recommended** to use a virtual environment for better package management.
-
----
-
-#### Option A: Using a Virtual Environment (Recommended)
-
-##### Why Use It?
-
-1. **Isolation**: Keeps all required packages isolated from system Python and other projects.
-2. **Avoid Conflicts**: Allows different projects to use different versions of the same libraries.
-3. **Clean Setup**: You start with a minimal environment that contains only what your project needs.
-4. **Reproducibility**: Makes it easier to reproduce environments across systems.
-
-##### How to Set Up:
+It is **highly recommended** to use a virtual environment to manage dependencies and avoid conflicts with system packages:
 
 ```bash
-python -m venv venv
-source venv/bin/activate     # On Linux/macOS
-venv\Scripts\activate        # On Windows
+python3 -m venv venv
+source venv/bin/activate  # On Windows use: venv\Scripts\activate
 pip install -r requirements.txt
 ```
-
----
-
-#### Option B: Installing Dependencies Globally (Not Recommended)
-
-```bash
-pip install -r requirements.txt
-```
-
-##### Risks:
-
-* Might interfere with other Python projects on your system.
-* Harder to manage and debug version conflicts.
-* May require `sudo` permissions on Linux/macOS.
 
 ---
 
 ## Configuration
 
-You will need to configure `config.ini` to enable email alerts and detection settings. A sample configuration template will be provided in the repo. You'll be prompted for email credentials if using alerting.
+Before running NetEye, you need to configure basic parameters using a `config.ini` file located in the root directory.
+
+### Sample `config.ini`
+
+```ini
+[Network]
+local_ip = 192.168.1.100
+
+[Email]
+email_alerts = true
+reporting_interval = 10
+email_server = smtp.gmail.com
+email_port = 587
+
+[Detection]
+ddos_threshold = 50
+ddos_time_window = 5
+port_scan_threshold = 15
+port_scan_time_window = 10
+session_timeout = 60
+malicious_strings = root, admin, /bin/bash, /etc/passwd, nmap
+```
+
+> 💡 `local_ip` will be auto-detected if left blank, but you can manually override it.
+> 💡 `email_alerts = false` will disable email reporting even if credentials are provided.
+
+You’ll be prompted for email credentials (App Passwords) during runtime if alerts are enabled.
+
+---
+
+## requirements.txt
+
+Below is the content of `requirements.txt` to be placed in your project root:
+
+```txt
+colorama
+art
+psutil
+scapy
+requests
+nmap
+```
+
+You can install them with:
+
+```bash
+pip install -r requirements.txt
+```
 
 ---
 
 ## Running NetEye
 
-Start the main script with:
-
 ```bash
-python main.py
+python neteye.py
 ```
 
-Use the menu interface to navigate Offensive Tools, Defensive Tools, and Utilities. Make sure you run as Administrator or with root privileges for full functionality.
+Choose from the menu:
+
+* Offensive Tools: for ARP/MITM/DNS spoofing
+* Defensive Tools: for monitoring, alerts, scanning
+* Utilities: for configuration, email tests, and live reports
+
+> ⚠️ Always run with root/admin privileges to enable low-level network operations.
 
 ---
 
-## Disclaimer
+## Legal Disclaimer
 
-This tool is intended for **educational and authorized network testing only**. The author is not responsible for misuse or any illegal activities carried out using this software.
-
----
-
-## License
-
-MIT License
+NetEye is intended for **educational and authorized security testing purposes only**. Unauthorized use on networks you do not own or have explicit permission to test is illegal and unethical.
 
 ---
 
-Happy Hunting,
-**Midnight Hunter**
+Happy Hacking! 🛡️
