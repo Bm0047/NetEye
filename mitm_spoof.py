@@ -121,7 +121,7 @@ def arp_spoof_loop(target_ip, gateway_ip, target_mac, gateway_mac):
         spoof(gateway_ip, target_ip, gateway_mac)
         time.sleep(2) # Send spoofed packets every 2 seconds
 
-def start_mitm_spoofing():
+def start_mitm_attack():
     """
     Main function to start the Man-in-the-Middle attack simulation.
     """
