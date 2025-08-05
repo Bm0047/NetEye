@@ -1039,3 +1039,4 @@ TypeError: can only concatenate str (not "int") to str
 2025-08-05 16:42:20,198 - ARP Spoofing Attack Detected! Attacker MAC: 00:15:5d:7e:fb:06, Estimated Vendor: Microsoft, Spoofed IP: 172.26.16.1
 2025-08-05 16:42:22,254 - ARP Spoofing Attack Detected! Attacker MAC: 00:15:5d:7e:fb:06, Estimated Vendor: Microsoft, Spoofed IP: 172.26.16.1
 2025-08-05 16:42:22,304 - ARP Spoofing Attack Detected! Attacker MAC: 00:15:5d:7e:fb:06, Estimated Vendor: Microsoft, Spoofed IP: 172.26.16.1
+2025-08-05 16:44:46,855 - ARP Spoofing Attack Detected! Attacker MAC: 00:15:5d:7e:fb:06, Estimated Vendor: Microsoft, Spoofed IP: 172.26.16.1

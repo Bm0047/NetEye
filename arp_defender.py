@@ -104,22 +104,22 @@ def restore_arp_proactively(gateway_ip, gateway_mac, target_ips):
     Continuously sends correct ARP responses to restore the network's ARP tables.
     This function will run in a separate thread.
     """
+    restore_counter = 0
     while countermeasure_active.is_set():
         for ip in target_ips:
             # Craft a correct ARP response for the gateway and send it to all IPs
             packet = scapy.ARP(op=2, pdst=ip, hwdst="ff:ff:ff:ff:ff:ff", psrc=gateway_ip, hwsrc=gateway_mac)
             scapy.send(packet, verbose=False)
         time.sleep(2) # Send every 2 seconds to combat spoofing
+        restore_counter += 1
+        if restore_counter % 5 == 0:  # Print status every 10 seconds (5 * 2s)
+            print(f"{Fore.GREEN}[+] Countermeasure is active and defending the network...{Style.RESET_ALL}")
 
 def check_arp_packet(packet):
     """
     The core defensive function for ARP. Checks for suspicious ARP packets
     and logs forensic details if a spoof is detected.
     """
-    # If a countermeasure is active, we don't need to log every detection.
-    if countermeasure_active.is_set():
-        return
-        
     if packet.haslayer(scapy.ARP) and packet[scapy.ARP].op == 2:  # op=2 is an ARP response
         sender_ip = packet[scapy.ARP].psrc
         sender_mac = packet[scapy.ARP].hwsrc
@@ -128,6 +128,12 @@ def check_arp_packet(packet):
         if sender_ip in TRUSTED_MACS:
             # Check if the MAC address in the packet matches the trusted MAC
             if sender_mac != TRUSTED_MACS[sender_ip]:
+                if countermeasure_active.is_set():
+                    # If the countermeasure is active, just log the neutralization
+                    print(f"{Fore.YELLOW}[-] Malicious packet detected from {sender_mac} but was neutralized.{Style.RESET_ALL}")
+                    logging.info(f"Malicious packet neutralized! Attacker MAC: {sender_mac}, Spoofed IP: {sender_ip}")
+                    return
+                
                 # An attack is detected! Log and print forensic details.
                 vendor = get_mac_vendor(sender_mac)
                 
@@ -162,7 +168,9 @@ def check_arp_packet(packet):
                     )
                     countermeasure_thread.daemon = True
                     countermeasure_thread.start()
-                    print(f"\n{Fore.GREEN}Countermeasure launched. Continuously restoring ARP tables to all devices on the network.{Style.RESET_ALL}")
+                    print(f"\n{Fore.GREEN}{Style.BRIGHT}Countermeasure launched! The attack is now being actively neutralized. The console will show neutralization updates.{Style.RESET_ALL}")
+                else:
+                    print(f"\n{Fore.YELLOW}Countermeasure not launched. Defender will continue to log detections.{Style.RESET_ALL}")
 
 def start_arp_defender():
     """
