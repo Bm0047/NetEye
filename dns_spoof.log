@@ -1040,3 +1040,35 @@ TypeError: can only concatenate str (not "int") to str
 2025-08-05 16:42:22,254 - ARP Spoofing Attack Detected! Attacker MAC: 00:15:5d:7e:fb:06, Estimated Vendor: Microsoft, Spoofed IP: 172.26.16.1
 2025-08-05 16:42:22,304 - ARP Spoofing Attack Detected! Attacker MAC: 00:15:5d:7e:fb:06, Estimated Vendor: Microsoft, Spoofed IP: 172.26.16.1
 2025-08-05 16:44:46,855 - ARP Spoofing Attack Detected! Attacker MAC: 00:15:5d:7e:fb:06, Estimated Vendor: Microsoft, Spoofed IP: 172.26.16.1
+2025-08-05 16:59:18,026 - ARP Spoofing Attack Detected! Attacker MAC: 00:15:5d:7e:fb:06, Estimated Vendor: Microsoft, Spoofed IP: 172.26.16.1
+2025-08-05 16:59:34,529 - Malicious packet neutralized! Attacker MAC: 00:15:5d:7e:fb:06, Spoofed IP: 172.26.16.1
+2025-08-05 16:59:34,557 - Malicious packet neutralized! Attacker MAC: 00:15:5d:7e:fb:06, Spoofed IP: 172.26.16.1
+2025-08-05 16:59:34,586 - Malicious packet neutralized! Attacker MAC: 00:15:5d:7e:fb:06, Spoofed IP: 172.26.16.1
+2025-08-05 16:59:34,589 - Malicious packet neutralized! Attacker MAC: 00:15:5d:7e:fb:06, Spoofed IP: 172.26.16.1
+2025-08-05 16:59:34,594 - Malicious packet neutralized! Attacker MAC: 00:15:5d:7e:fb:06, Spoofed IP: 172.26.16.1
+2025-08-05 16:59:34,605 - Malicious packet neutralized! Attacker MAC: 00:15:5d:7e:fb:06, Spoofed IP: 172.26.16.1
+2025-08-05 16:59:34,608 - Malicious packet neutralized! Attacker MAC: 00:15:5d:7e:fb:06, Spoofed IP: 172.26.16.1
+2025-08-05 16:59:34,610 - Malicious packet neutralized! Attacker MAC: 00:15:5d:7e:fb:06, Spoofed IP: 172.26.16.1
+2025-08-05 16:59:34,628 - Malicious packet neutralized! Attacker MAC: 00:15:5d:7e:fb:06, Spoofed IP: 172.26.16.1
+2025-08-05 16:59:34,635 - Malicious packet neutralized! Attacker MAC: 00:15:5d:7e:fb:06, Spoofed IP: 172.26.16.1
+2025-08-05 16:59:34,638 - Malicious packet neutralized! Attacker MAC: 00:15:5d:7e:fb:06, Spoofed IP: 172.26.16.1
+2025-08-05 16:59:34,645 - Malicious packet neutralized! Attacker MAC: 00:15:5d:7e:fb:06, Spoofed IP: 172.26.16.1
+2025-08-05 16:59:34,653 - Malicious packet neutralized! Attacker MAC: 00:15:5d:7e:fb:06, Spoofed IP: 172.26.16.1
+2025-08-05 16:59:34,657 - Malicious packet neutralized! Attacker MAC: 00:15:5d:7e:fb:06, Spoofed IP: 172.26.16.1
+2025-08-05 16:59:34,659 - Malicious packet neutralized! Attacker MAC: 00:15:5d:7e:fb:06, Spoofed IP: 172.26.16.1
+2025-08-05 16:59:34,663 - Malicious packet neutralized! Attacker MAC: 00:15:5d:7e:fb:06, Spoofed IP: 172.26.16.1
+2025-08-05 16:59:34,671 - Malicious packet neutralized! Attacker MAC: 00:15:5d:7e:fb:06, Spoofed IP: 172.26.16.1
+2025-08-05 16:59:35,173 - Malicious packet neutralized! Attacker MAC: 00:15:5d:7e:fb:06, Spoofed IP: 172.26.16.1
+2025-08-05 16:59:35,214 - Malicious packet neutralized! Attacker MAC: 00:15:5d:7e:fb:06, Spoofed IP: 172.26.16.1
+2025-08-05 16:59:37,270 - Malicious packet neutralized! Attacker MAC: 00:15:5d:7e:fb:06, Spoofed IP: 172.26.16.1
+2025-08-05 16:59:37,317 - Malicious packet neutralized! Attacker MAC: 00:15:5d:7e:fb:06, Spoofed IP: 172.26.16.1
+2025-08-05 16:59:39,362 - Malicious packet neutralized! Attacker MAC: 00:15:5d:7e:fb:06, Spoofed IP: 172.26.16.1
+2025-08-05 16:59:39,398 - Malicious packet neutralized! Attacker MAC: 00:15:5d:7e:fb:06, Spoofed IP: 172.26.16.1
+2025-08-05 16:59:41,437 - Malicious packet neutralized! Attacker MAC: 00:15:5d:7e:fb:06, Spoofed IP: 172.26.16.1
+2025-08-05 16:59:41,480 - Malicious packet neutralized! Attacker MAC: 00:15:5d:7e:fb:06, Spoofed IP: 172.26.16.1
+2025-08-05 16:59:43,523 - Malicious packet neutralized! Attacker MAC: 00:15:5d:7e:fb:06, Spoofed IP: 172.26.16.1
+2025-08-05 16:59:43,562 - Malicious packet neutralized! Attacker MAC: 00:15:5d:7e:fb:06, Spoofed IP: 172.26.16.1
+2025-08-05 16:59:45,613 - Malicious packet neutralized! Attacker MAC: 00:15:5d:7e:fb:06, Spoofed IP: 172.26.16.1
+2025-08-05 16:59:45,669 - Malicious packet neutralized! Attacker MAC: 00:15:5d:7e:fb:06, Spoofed IP: 172.26.16.1
+2025-08-05 16:59:47,710 - Malicious packet neutralized! Attacker MAC: 00:15:5d:7e:fb:06, Spoofed IP: 172.26.16.1
+2025-08-05 16:59:47,759 - Malicious packet neutralized! Attacker MAC: 00:15:5d:7e:fb:06, Spoofed IP: 172.26.16.1

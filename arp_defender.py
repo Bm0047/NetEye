@@ -14,6 +14,8 @@ TRUSTED_MACS = {}
 stop_defender_event = threading.Event()
 # A flag to check if the active countermeasure is running
 countermeasure_active = threading.Event()
+# A timestamp for the last detected attack, used for automatic countermeasure shutdown
+last_attack_time = 0
 # A simple dictionary for MAC vendor lookup
 MAC_VENDORS = {
     "00:15:5d": "Microsoft",
@@ -105,14 +107,32 @@ def restore_arp_proactively(gateway_ip, gateway_mac, target_ips):
     This function will run in a separate thread.
     """
     restore_counter = 0
+    inactivity_timeout = 60 # seconds
+    
+    global last_attack_time
+    last_attack_time = time.time() # Start the timer when the countermeasure begins
+
     while countermeasure_active.is_set():
+        # Check if the attack has stopped for the inactivity timeout period
+        if time.time() - last_attack_time > inactivity_timeout:
+            print(f"\n{Fore.GREEN}[-] No malicious packets detected for {inactivity_timeout} seconds. The network appears secure.{Style.RESET_ALL}")
+            choice = input(f"{Fore.YELLOW}Do you want to terminate the countermeasure? (y/n): {Style.RESET_ALL}").lower()
+            if choice == 'y':
+                print(f"\n{Fore.GREEN}Countermeasure terminated by user. Defender is now in passive monitoring mode.{Style.RESET_ALL}")
+                countermeasure_active.clear()
+                return
+            else:
+                print(f"\n{Fore.YELLOW}Continuing active defense. The script will re-prompt if no attacks are detected for another {inactivity_timeout} seconds.{Style.RESET_ALL}")
+                last_attack_time = time.time() # Reset the timer to re-prompt later
+            
         for ip in target_ips:
             # Craft a correct ARP response for the gateway and send it to all IPs
             packet = scapy.ARP(op=2, pdst=ip, hwdst="ff:ff:ff:ff:ff:ff", psrc=gateway_ip, hwsrc=gateway_mac)
             scapy.send(packet, verbose=False)
+        
         time.sleep(2) # Send every 2 seconds to combat spoofing
         restore_counter += 1
-        if restore_counter % 5 == 0:  # Print status every 10 seconds (5 * 2s)
+        if restore_counter % 5 == 0 and countermeasure_active.is_set():  # Print status every 10 seconds (5 * 2s)
             print(f"{Fore.GREEN}[+] Countermeasure is active and defending the network...{Style.RESET_ALL}")
 
 def check_arp_packet(packet):
@@ -120,6 +140,8 @@ def check_arp_packet(packet):
     The core defensive function for ARP. Checks for suspicious ARP packets
     and logs forensic details if a spoof is detected.
     """
+    global last_attack_time
+
     if packet.haslayer(scapy.ARP) and packet[scapy.ARP].op == 2:  # op=2 is an ARP response
         sender_ip = packet[scapy.ARP].psrc
         sender_mac = packet[scapy.ARP].hwsrc
@@ -128,6 +150,8 @@ def check_arp_packet(packet):
         if sender_ip in TRUSTED_MACS:
             # Check if the MAC address in the packet matches the trusted MAC
             if sender_mac != TRUSTED_MACS[sender_ip]:
+                last_attack_time = time.time() # Update the last attack time
+                
                 if countermeasure_active.is_set():
                     # If the countermeasure is active, just log the neutralization
                     print(f"{Fore.YELLOW}[-] Malicious packet detected from {sender_mac} but was neutralized.{Style.RESET_ALL}")
