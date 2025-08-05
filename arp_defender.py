@@ -66,7 +66,16 @@ def find_gateway_ip():
         print(f"{Fore.RED}Error finding gateway IP: {e}{Style.RESET_ALL}")
         return None
 
-def populate_trusted_macs(gateway_ip_input, interface):
+def get_all_ips_on_network(gateway_ip):
+    """
+    Scans the network to find all active IPs.
+    """
+    print(f"\n{Fore.CYAN}Scanning network for active devices to protect...{Style.RESET_ALL}")
+    ans, _ = scapy.srp(scapy.Ether(dst="ff:ff:ff:ff:ff:ff")/scapy.ARP(pdst=f"{gateway_ip}/24"), timeout=3, verbose=False)
+    active_ips = [rcv.psrc for _, rcv in ans]
+    return active_ips
+
+def populate_trusted_macs(gateway_ip_input):
     """
     Populates the TRUSTED_MACS dictionary with the gateway's MAC address.
     """
@@ -77,7 +86,7 @@ def populate_trusted_macs(gateway_ip_input, interface):
 
     if not gateway_ip:
         print(f"{Fore.RED}Could not determine gateway IP. Please provide it manually.{Style.RESET_ALL}")
-        return False
+        return False, None
 
     print(f"{Fore.YELLOW}Looking for the router's IP and MAC address...{Style.RESET_ALL}")
     gateway_mac = get_mac(gateway_ip)
@@ -85,21 +94,21 @@ def populate_trusted_macs(gateway_ip_input, interface):
     if gateway_mac:
         TRUSTED_MACS[gateway_ip] = gateway_mac
         print(f"{Fore.GREEN}Trusted Gateway IP: {gateway_ip} -> MAC: {gateway_mac}{Style.RESET_ALL}")
-        return True
+        return True, gateway_ip
     else:
         print(f"{Fore.RED}Could not find gateway MAC address. Exiting.{Style.RESET_ALL}")
-        return False
+        return False, None
 
-def restore_arp_proactively(gateway_ip, gateway_mac):
+def restore_arp_proactively(gateway_ip, gateway_mac, target_ips):
     """
-    Continuously sends correct ARP responses to restore the network.
+    Continuously sends correct ARP responses to restore the network's ARP tables.
     This function will run in a separate thread.
     """
     while countermeasure_active.is_set():
-        # Craft a correct ARP response for the gateway and broadcast it
-        # This will inform all other hosts of the correct MAC address
-        packet = scapy.ARP(op=2, pdst=gateway_ip, hwdst="ff:ff:ff:ff:ff:ff", psrc=gateway_ip, hwsrc=gateway_mac)
-        scapy.send(packet, verbose=False)
+        for ip in target_ips:
+            # Craft a correct ARP response for the gateway and send it to all IPs
+            packet = scapy.ARP(op=2, pdst=ip, hwdst="ff:ff:ff:ff:ff:ff", psrc=gateway_ip, hwsrc=gateway_mac)
+            scapy.send(packet, verbose=False)
         time.sleep(2) # Send every 2 seconds to combat spoofing
 
 def check_arp_packet(packet):
@@ -107,9 +116,10 @@ def check_arp_packet(packet):
     The core defensive function for ARP. Checks for suspicious ARP packets
     and logs forensic details if a spoof is detected.
     """
-    if stop_defender_event.is_set():
+    # If a countermeasure is active, we don't need to log every detection.
+    if countermeasure_active.is_set():
         return
-
+        
     if packet.haslayer(scapy.ARP) and packet[scapy.ARP].op == 2:  # op=2 is an ARP response
         sender_ip = packet[scapy.ARP].psrc
         sender_mac = packet[scapy.ARP].hwsrc
@@ -135,22 +145,24 @@ def check_arp_packet(packet):
                              f"Estimated Vendor: {vendor}, Spoofed IP: {sender_ip}")
 
                 # Ask the user if they want to launch the countermeasure
-                if not countermeasure_active.is_set():
-                    choice = input(f"\n{Fore.YELLOW}Do you want to launch a countermeasure to stop this attack? (y/n): {Style.RESET_ALL}").lower()
-                    if choice == 'y':
-                        countermeasure_active.set()
-                        # Get the gateway IP and MAC from the trusted list
-                        gateway_ip = list(TRUSTED_MACS.keys())[0]
-                        gateway_mac = TRUSTED_MACS[gateway_ip]
-                        
-                        # Start a new thread for the countermeasure
-                        countermeasure_thread = threading.Thread(
-                            target=restore_arp_proactively, 
-                            args=(gateway_ip, gateway_mac)
-                        )
-                        countermeasure_thread.daemon = True
-                        countermeasure_thread.start()
-                        print(f"\n{Fore.GREEN}Countermeasure launched. Continuously restoring ARP tables to prevent further spoofing.{Style.RESET_ALL}")
+                choice = input(f"\n{Fore.YELLOW}Do you want to launch a countermeasure to stop this attack? (y/n): {Style.RESET_ALL}").lower()
+                if choice == 'y':
+                    countermeasure_active.set()
+                    # Get the gateway IP and MAC from the trusted list
+                    gateway_ip = list(TRUSTED_MACS.keys())[0]
+                    gateway_mac = TRUSTED_MACS[gateway_ip]
+                    
+                    # Find all other IPs on the network to send restoration packets to
+                    all_ips = get_all_ips_on_network(gateway_ip)
+                    
+                    # Start a new thread for the countermeasure
+                    countermeasure_thread = threading.Thread(
+                        target=restore_arp_proactively, 
+                        args=(gateway_ip, gateway_mac, all_ips)
+                    )
+                    countermeasure_thread.daemon = True
+                    countermeasure_thread.start()
+                    print(f"\n{Fore.GREEN}Countermeasure launched. Continuously restoring ARP tables to all devices on the network.{Style.RESET_ALL}")
 
 def start_arp_defender():
     """
@@ -165,7 +177,8 @@ def start_arp_defender():
 
     gateway_ip_input = input(f"{Fore.YELLOW}Enter Gateway IP (press Enter to auto-detect): {Style.RESET_ALL}")
 
-    if not populate_trusted_macs(gateway_ip_input or None, scapy.conf.iface):
+    success, gateway_ip = populate_trusted_macs(gateway_ip_input)
+    if not success:
         return
 
     print(f"\n{Fore.GREEN}Defender is now active and monitoring for ARP spoofing. Press Ctrl+C to stop.{Style.RESET_ALL}")
