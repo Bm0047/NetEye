@@ -4,26 +4,58 @@ import threading
 from colorama import Fore, Style, init
 import os
 import sys
+import logging
 
 init(autoreset=True)
 
 # A dictionary to store the trusted IP-to-MAC mappings
 TRUSTED_MACS = {}
-
 # A flag to stop the sniffer thread gracefully
 stop_defender_event = threading.Event()
+# A flag to check if the active countermeasure is running
+countermeasure_active = threading.Event()
+# A simple dictionary for MAC vendor lookup
+MAC_VENDORS = {
+    "00:15:5d": "Microsoft",
+    "00:0c:29": "VMware",
+    "f4:98:86": "Apple",
+    "7c:f5:12": "Cisco",
+    "50:c7:bf": "TP-Link",
+    "a8:1c:69": "Intel",
+}
+
+# --- Logging Configuration ---
+log_file = "arp_defender.log"
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s - %(message)s",
+    handlers=[
+        logging.FileHandler(log_file),
+        logging.StreamHandler(sys.stdout)
+    ]
+)
+logging.getLogger("scapy.runtime").setLevel(logging.ERROR) # Suppress Scapy warnings
 
 def get_mac(ip):
     """
     Retrieves the MAC address for a given IP address.
     """
     try:
+        # Send an ARP request to the IP and get the response
         ans, _ = scapy.srp(scapy.Ether(dst="ff:ff:ff:ff:ff:ff")/scapy.ARP(pdst=ip), timeout=2, verbose=False)
         for _, rcv in ans:
             return rcv.hwsrc
     except Exception as e:
         print(f"{Fore.RED}Error getting MAC for {ip}: {e}{Style.RESET_ALL}")
     return None
+
+def get_mac_vendor(mac_address):
+    """
+    Performs a simple lookup to get the vendor of a MAC address.
+    A more robust solution would use a full MAC OUI database.
+    """
+    oui = mac_address[:8].lower()
+    return MAC_VENDORS.get(oui, "Unknown Vendor")
 
 def find_gateway_ip():
     """Finds the IP address of the default gateway (router)."""
@@ -58,11 +90,23 @@ def populate_trusted_macs(gateway_ip_input, interface):
         print(f"{Fore.RED}Could not find gateway MAC address. Exiting.{Style.RESET_ALL}")
         return False
 
+def restore_arp_proactively(gateway_ip, gateway_mac):
+    """
+    Continuously sends correct ARP responses to restore the network.
+    This function will run in a separate thread.
+    """
+    while countermeasure_active.is_set():
+        # Craft a correct ARP response for the gateway and broadcast it
+        # This will inform all other hosts of the correct MAC address
+        packet = scapy.ARP(op=2, pdst=gateway_ip, hwdst="ff:ff:ff:ff:ff:ff", psrc=gateway_ip, hwsrc=gateway_mac)
+        scapy.send(packet, verbose=False)
+        time.sleep(2) # Send every 2 seconds to combat spoofing
+
 def check_arp_packet(packet):
     """
-    The core defensive function for ARP. Checks for suspicious ARP packets.
+    The core defensive function for ARP. Checks for suspicious ARP packets
+    and logs forensic details if a spoof is detected.
     """
-    # Check if the event is set to stop processing packets
     if stop_defender_event.is_set():
         return
 
@@ -74,15 +118,43 @@ def check_arp_packet(packet):
         if sender_ip in TRUSTED_MACS:
             # Check if the MAC address in the packet matches the trusted MAC
             if sender_mac != TRUSTED_MACS[sender_ip]:
-                print(f"\n{Fore.RED}{Style.BRIGHT}[!!!] ARP Spoofing Detected!{Style.RESET_ALL}")
-                print(f"{Fore.YELLOW}  Sender IP: {sender_ip}{Style.RESET_ALL}")
-                print(f"{Fore.YELLOW}  Packet claims sender to be at MAC {sender_mac}.{Style.RESET_ALL}")
-                print(f"{Fore.RED}{Style.BRIGHT}  This does not match the trusted MAC {TRUSTED_MACS[sender_ip]}.{Style.RESET_ALL}")
-                print(f"{Fore.YELLOW}  A spoofing attack may be in progress!{Style.RESET_ALL}")
+                # An attack is detected! Log and print forensic details.
+                vendor = get_mac_vendor(sender_mac)
+                
+                # Print the warning to the console
+                print(f"\n{Fore.RED}{Style.BRIGHT}[!!!] ARP Spoofing Attack Detected!{Style.RESET_ALL}")
+                print(f"{Fore.CYAN}------------------- ATTACK DETAILS -------------------{Style.RESET_ALL}")
+                print(f"{Fore.YELLOW}  - Attacker's MAC Address: {Style.BRIGHT}{sender_mac}{Style.RESET_ALL}")
+                print(f"{Fore.YELLOW}  - Estimated Vendor: {Style.BRIGHT}{vendor}{Style.RESET_ALL}")
+                print(f"{Fore.YELLOW}  - Spoofed IP Address: {Style.BRIGHT}{sender_ip}{Style.RESET_ALL}")
+                print(f"{Fore.RED}  - This does not match the trusted MAC {TRUSTED_MACS[sender_ip]}.{Style.RESET_ALL}")
+                print(f"{Fore.CYAN}------------------------------------------------------{Style.RESET_ALL}")
+
+                # Log the details to the file
+                logging.info(f"ARP Spoofing Attack Detected! Attacker MAC: {sender_mac}, "
+                             f"Estimated Vendor: {vendor}, Spoofed IP: {sender_ip}")
+
+                # Ask the user if they want to launch the countermeasure
+                if not countermeasure_active.is_set():
+                    choice = input(f"\n{Fore.YELLOW}Do you want to launch a countermeasure to stop this attack? (y/n): {Style.RESET_ALL}").lower()
+                    if choice == 'y':
+                        countermeasure_active.set()
+                        # Get the gateway IP and MAC from the trusted list
+                        gateway_ip = list(TRUSTED_MACS.keys())[0]
+                        gateway_mac = TRUSTED_MACS[gateway_ip]
+                        
+                        # Start a new thread for the countermeasure
+                        countermeasure_thread = threading.Thread(
+                            target=restore_arp_proactively, 
+                            args=(gateway_ip, gateway_mac)
+                        )
+                        countermeasure_thread.daemon = True
+                        countermeasure_thread.start()
+                        print(f"\n{Fore.GREEN}Countermeasure launched. Continuously restoring ARP tables to prevent further spoofing.{Style.RESET_ALL}")
 
 def start_arp_defender():
     """
-    Initializes and starts the ARP spoofing detection tool.
+    Initializes and starts the ARP spoofing detection and active defense tool.
     """
     print(f"\n{Fore.YELLOW}{Style.BRIGHT}Starting ARP Spoofing Defender{Style.RESET_ALL}")
     print(f"{Fore.CYAN}{'-'*50}{Style.RESET_ALL}")
@@ -110,6 +182,7 @@ def start_arp_defender():
         print(f"{Fore.RED}An unexpected error occurred during sniffing: {e}{Style.RESET_ALL}")
     finally:
         stop_defender_event.set()
+        countermeasure_active.clear()
         print(f"{Fore.CYAN}ARP Defender stopped.{Style.RESET_ALL}")
 
 # Entry point for the module when it's run directly
