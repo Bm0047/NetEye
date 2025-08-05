@@ -2,3 +2,6 @@
 /__pycache__
 /mitm.log
 /neteye.log
+/dns_spoof.log
+/arp_defender.log
+/mitm.log
