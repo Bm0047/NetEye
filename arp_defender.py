@@ -119,6 +119,12 @@ def restore_arp_proactively(gateway_ip, gateway_mac, target_ips):
             choice = input(f"{Fore.YELLOW}Do you want to terminate the countermeasure? (y/n): {Style.RESET_ALL}").lower()
             if choice == 'y':
                 print(f"\n{Fore.GREEN}Countermeasure terminated by user. Defender is now in passive monitoring mode.{Style.RESET_ALL}")
+                
+                # --- MODIFIED CODE BLOCK ---
+                print(f"\n{Fore.YELLOW}Returning to main menu in 5 seconds...{Style.RESET_ALL}")
+                time.sleep(5)
+                # --- END OF MODIFIED BLOCK ---
+                
                 countermeasure_active.clear()
                 return
             else:
