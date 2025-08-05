@@ -1,5 +1,3 @@
-Here is the `README.md` content with the image link. You can copy this text and paste it directly into your local `README.md` file.
-
 # NetEye - Advanced Network Monitoring Tool
 
 **Coded by: Midnight Hunter**
